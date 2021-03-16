@@ -58,7 +58,7 @@ const sipTwo = new SipTwo(sip2ConnectionOptions);
 
 This will output a result similar to the following, bound to the `IPatronInformationResponse` interface:
 
-```json
+```none
 patronInfo {
   status: PatronStatus {
     chargePrivilegesDenied: false,
@@ -115,7 +115,7 @@ The following is a list of exposed methods available through the `SipTwo` class.
 login(): Promise<ILoginResponse>
 ```
 
-- Response: [ILoginResponse](./src/lib/interfaces/ILoginResponse)
+- Response: [ILoginResponse](./src/lib/interfaces/ILoginResponse.ts)
 
 ### Set patron credentials
 
@@ -123,7 +123,7 @@ login(): Promise<ILoginResponse>
 setPatron(patronCredentials: IPatronCredentials)
 ```
 
-- Required: [IPatronCredentials](./src/lib/interfaces/IPatronCredentials)
+- Required: [IPatronCredentials](./src/lib/interfaces/IPatronCredentials.ts)
 - Response: `void`
 
 ### Request resend
@@ -140,8 +140,8 @@ requestResend(): Promise<any>
 requestSCStatus(scStatusRequestDto: ISCStatusRequestDto = {}): Promise<IACStatusResponse>
 ```
 
-- Optional: [ISCStatusRequestDto](./src/lib/interfaces/ISCStatusRequestDto)
-- Response: [IACStatusResponse](./src/lib/interfaces/IACStatusResponse)
+- Optional: [ISCStatusRequestDto](./src/lib/interfaces/ISCStatusRequestDto.ts)
+- Response: [IACStatusResponse](./src/lib/interfaces/IACStatusResponse.ts)
 
 ### Enable patron (if blocked)
 
@@ -149,7 +149,7 @@ requestSCStatus(scStatusRequestDto: ISCStatusRequestDto = {}): Promise<IACStatus
 requestPatronEnable(): Promise<IPatronEnableResponse>
 ```
 
-- Response: [IPatronEnableResponse](./src/lib/interfaces/IPatronEnableResponse)
+- Response: [IPatronEnableResponse](./src/lib/interfaces/IPatronEnableResponse.ts)
 
 ### Block patron
 
@@ -157,8 +157,8 @@ requestPatronEnable(): Promise<IPatronEnableResponse>
 requestPatronBlock(blockPatronRequestDto: IBlockPatronRequestDto): Promise<IPatronStatusResponse>
 ```
 
-- Required: [IBlockPatronRequestDto](./src/lib/interfaces/IBlockPatronRequestDto)
-- Response: [IPatronStatusResponse](./src/lib/interfaces/IPatronStatusResponse)
+- Required: [IBlockPatronRequestDto](./src/lib/interfaces/IBlockPatronRequestDto.ts)
+- Response: [IPatronStatusResponse](./src/lib/interfaces/IPatronStatusResponse.ts)
 
 ### Patron information
 
@@ -166,7 +166,7 @@ requestPatronBlock(blockPatronRequestDto: IBlockPatronRequestDto): Promise<IPatr
 requestPatronInformation(): Promise<IPatronInformationResponse>
 ```
 
-- Response: [IPatronInformationResponse](./src/lib/interfaces/IPatronInformationResponse)
+- Response: [IPatronInformationResponse](./src/lib/interfaces/IPatronInformationResponse.ts)
 
 ### Patron status
 
@@ -174,7 +174,7 @@ requestPatronInformation(): Promise<IPatronInformationResponse>
 requestPatronStatus(): Promise<IPatronStatusResponse>
 ```
 
-- Response: [IPatronStatusResponse](./src/lib/interfaces/IPatronStatusResponse)
+- Response: [IPatronStatusResponse](./src/lib/interfaces/IPatronStatusResponse.ts)
 
 ### Item information
 
@@ -183,7 +183,7 @@ requestItemInformation(itemIdentifier: string): Promise<IItemInformationResponse
 ```
 
 - Required: `itemIdentifier: string`
-- Response: [IItemInformationResponse](./src/lib/interfaces/IItemInformationResponse)
+- Response: [IItemInformationResponse](./src/lib/interfaces/IItemInformationResponse.ts)
 
 ### Checkout an item
 
@@ -191,8 +191,8 @@ requestItemInformation(itemIdentifier: string): Promise<IItemInformationResponse
 requestCheckout(checkoutRequestDto: ICheckoutRequestDto): Promise<ICheckoutResponse>
 ```
 
-- Required: [ICheckoutRequestDto](./src/lib/interfaces/ICheckoutRequestDto)
-- Response: [ICheckoutResponse](./src/lib/interfaces/ICheckoutResponse)
+- Required: [ICheckoutRequestDto](./src/lib/interfaces/ICheckoutRequestDto.ts)
+- Response: [ICheckoutResponse](./src/lib/interfaces/ICheckoutResponse.ts)
 
 ### Checkin an item
 
@@ -200,8 +200,8 @@ requestCheckout(checkoutRequestDto: ICheckoutRequestDto): Promise<ICheckoutRespo
 requestCheckin(checkinRequestDto: ICheckinRequestDto): Promise<ICheckinResponse>
 ```
 
-- Required: [ICheckinRequestDto](./src/lib/interfaces/ICheckinRequestDto)
-- Response: [ICheckinResponse](./src/lib/interfaces/ICheckinResponse)
+- Required: [ICheckinRequestDto](./src/lib/interfaces/ICheckinRequestDto.ts)
+- Response: [ICheckinResponse](./src/lib/interfaces/ICheckinResponse.ts)
 
 ### Renew an item
 
@@ -209,8 +209,8 @@ requestCheckin(checkinRequestDto: ICheckinRequestDto): Promise<ICheckinResponse>
 requestRenew(renewRequestDto: IRenewRequestDto): Promise<IRenewResponse>
 ```
 
-- Required: [IRenewRequestDto](./src/lib/interfaces/IRenewRequestDto)
-- Response: [IRenewResponse](./src/lib/interfaces/IRenewResponse)
+- Required: [IRenewRequestDto](./src/lib/interfaces/IRenewRequestDto.ts)
+- Response: [IRenewResponse](./src/lib/interfaces/IRenewResponse.ts)
 
 ### Renew all items
 
@@ -218,8 +218,8 @@ requestRenew(renewRequestDto: IRenewRequestDto): Promise<IRenewResponse>
 requestRenewAll(renewAllRequestDto: IRenewAllRequestDto = {}): Promise<IRenewAllResponse>
 ```
 
-- Optional: [IRenewAllRequestDto](./src/lib/interfaces/IRenewAllRequestDto)
-- Response: [IRenewAllResponse](./src/lib/interfaces/IRenewAllResponse)
+- Optional: [IRenewAllRequestDto](./src/lib/interfaces/IRenewAllRequestDto.ts)
+- Response: [IRenewAllResponse](./src/lib/interfaces/IRenewAllResponse.ts)
 
 ### Pay fees
 
@@ -227,8 +227,8 @@ requestRenewAll(renewAllRequestDto: IRenewAllRequestDto = {}): Promise<IRenewAll
 requestFeePaid(feePaidRequestDto: IFeePaidRequestDto): Promise<IFeePaidResponse>
 ```
 
-- Required: [IFeePaidRequestDto](./src/lib/interfaces/IFeePaidRequestDto)
-- Response: [IFeePaidResponse](./src/lib/interfaces/IFeePaidResponse)
+- Required: [IFeePaidRequestDto](./src/lib/interfaces/IFeePaidRequestDto.ts)
+- Response: [IFeePaidResponse](./src/lib/interfaces/IFeePaidResponse.ts)
 
 ### Place a hold
 
@@ -236,8 +236,8 @@ requestFeePaid(feePaidRequestDto: IFeePaidRequestDto): Promise<IFeePaidResponse>
 requestHold(holdRequestDto: IHoldRequestDto): Promise<IHoldResponse>
 ```
 
-- Required: [IHoldRequestDto](./src/lib/interfaces/IHoldRequestDto)
-- Response: [IHoldResponse](./src/lib/interfaces/IHoldResponse)
+- Required: [IHoldRequestDto](./src/lib/interfaces/IHoldRequestDto.ts)
+- Response: [IHoldResponse](./src/lib/interfaces/IHoldResponse.ts)
 
 ### End patron session
 
@@ -245,4 +245,4 @@ requestHold(holdRequestDto: IHoldRequestDto): Promise<IHoldResponse>
 async requestEndPatronSession(): Promise<IEndPatronSessionResponse>
 ```
 
-- Response: [IEndPatronSessionResponse](./src/lib/interfaces/IEndPatronSessionResponse)
+- Response: [IEndPatronSessionResponse](./src/lib/interfaces/IEndPatronSessionResponse.ts)
