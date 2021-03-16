@@ -1,6 +1,6 @@
 {
   "name": "siptwo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A strongly-typed library for communicating with SIP2 servers",
   "author": "John Blyberg <john@blyberg.net>",
   "license": "MIT",
@@ -34,6 +34,7 @@
     "url": "git@github.com:jblyberg/SipTwo.git"
   },
   "bugs": "https://github.com/jblyberg/SipTwo/issues",
+  "homepage": "https://github.com/jblyberg/SipTwo",
   "dependencies": {
     "dateformat": "^4.5.1",
     "uuid": "^8.3.2"
