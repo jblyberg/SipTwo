@@ -248,7 +248,7 @@ requestHold(holdRequestDto: IHoldRequestDto): Promise<IHoldResponse>
 ### End patron session
 
 ```ts
-async requestEndPatronSession(): Promise<IEndPatronSessionResponse>
+requestEndPatronSession(): Promise<IEndPatronSessionResponse>
 ```
 
 - Response: [IEndPatronSessionResponse](./src/lib/interfaces/IEndPatronSessionResponse.ts)
