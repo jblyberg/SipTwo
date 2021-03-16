@@ -26,6 +26,8 @@ SIP2 is a network protocol designed by 3M so that automated self-check machines 
 
 Getting started is very straightforward. Instantiate the SipTwo class with an `ISip2ConnectionOptions` object and use the `setPatron` method to pass `IPatronCredentials`. You can call `setPatron` any time to select a different patron.
 
+Connection objects:
+
 ```ts
 import { SipTwo, ISip2ConnectionOptions, IPatronCredentials } from 'siptwo';
 
@@ -41,11 +43,15 @@ const patronCredentials: IPatronCredentials = {
   password: 'patron_pin',
   institutionId: 'patron_org',
 };
+```
 
-// Inside your async function/method
-(async () => {
+Instantiate the class and make method calls:
 
+```ts
 const sipTwo = new SipTwo(sip2ConnectionOptions);
+
+// Inside an async function/method
+(async () => {
 
   await sipTwo.login();
   sipTwo.setPatron(patronCredentials);
