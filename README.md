@@ -96,7 +96,7 @@ patronInfo {
   feeAmount: 1.25,
   feeLimit: 0,
   homeAddress: '8265 Phone Trail El paso, El paso TX USA 88525',
-  email: genesadams@gmail.com,
+  email: 'genesadams@gmail.com',
   phone: '538-342-5233',
   screenMessage: [],
   printLine: [],
