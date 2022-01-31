@@ -1,4 +1,4 @@
-import * as net from 'net';
+import * as net from 'node:net';
 import { ParseResponse } from './ParseResponse';
 import { ISip2ConnectionOptions } from './interfaces';
 

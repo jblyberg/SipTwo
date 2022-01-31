@@ -1,10 +1,10 @@
 export const getChecksum = (message: string) => {
-  const messageChars = message.split('');
+  const messageChars = [...message];
   let checksum = 0;
   for (const char of messageChars) {
-    checksum += char.charCodeAt(0);
+    checksum += char.codePointAt(0);
   }
-  checksum = -(checksum & 0xffff);
+  checksum = -(checksum & 0xff_ff);
   return (checksum >>> 0).toString(16).slice(4, 8).toUpperCase();
 };
 

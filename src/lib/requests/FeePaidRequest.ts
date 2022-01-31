@@ -12,14 +12,8 @@ export class FeePaidRequest extends RequestMessage {
 
   buildMessage() {
     const transactionDate = formatSipRequestDateTime();
-    const {
-      feeType,
-      paymentType,
-      currencyType,
-      feeAmount,
-      feeIdentifier,
-      transactionId,
-    } = this.feePaidRequestDto;
+    const { feeType, paymentType, currencyType, feeAmount, feeIdentifier, transactionId } =
+      this.feePaidRequestDto;
 
     this.append(transactionDate);
     this.append(feeType || FeeType.types.OTHER_UNKNOWN);

@@ -1,6 +1,6 @@
 {
   "name": "siptwo",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A strongly-typed library for communicating with SIP2 servers",
   "author": "John Blyberg <john@blyberg.net>",
   "license": "MIT",
@@ -40,26 +40,25 @@
   "bugs": "https://github.com/jblyberg/SipTwo/issues",
   "homepage": "https://github.com/jblyberg/SipTwo",
   "dependencies": {
-    "dateformat": "^4.5.1",
+    "dateformat": "^5.0.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@types/dateformat": "^3.0.1",
-    "@types/jest": "^26.0.20",
-    "@types/node": "^14.14.33",
-    "@types/uuid": "^8.3.0",
-    "@typescript-eslint/eslint-plugin": "^4.17.0",
-    "@typescript-eslint/parser": "^4.17.0",
-    "eslint": "^7.21.0",
-    "eslint-config-prettier": "8.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-unicorn": "^28.0.2",
-    "jest": "^26.6.3",
-    "nodemon": "^2.0.7",
-    "prettier": "^2.2.1",
+    "@types/jest": "^27.4.0",
+    "@types/node": "^17.0.13",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-unicorn": "^40.1.0",
+    "jest": "^27.4.7",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
-    "ts-jest": "^26.5.3",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.2.3"
+    "ts-jest": "^27.1.3",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.5"
   }
 }

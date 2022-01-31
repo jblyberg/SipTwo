@@ -11,14 +11,8 @@ export class RenewRequest extends RequestMessage {
 
   buildMessage() {
     const transactionDate = formatSipRequestDateTime();
-    const {
-      offline,
-      offlineDueDateInterval,
-      itemIdentifier,
-      thirdParty,
-      itemProperties,
-      feeAcknowledged,
-    } = this.renewRequestDto;
+    const { offline, offlineDueDateInterval, itemIdentifier, thirdParty, itemProperties, feeAcknowledged } =
+      this.renewRequestDto;
 
     this.append(thirdParty ? 'Y' : 'N');
     this.append(offline ? 'Y' : 'N');
