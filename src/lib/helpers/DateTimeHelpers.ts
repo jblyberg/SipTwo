@@ -1,4 +1,4 @@
-import * as dateFormat from 'dateformat';
+import dateFormat from 'dateformat';
 
 export const formatSipRequestDateTime = (date: Date = new Date()) => {
   return dateFormat(date, 'yyyymmdd    HHMMss');
