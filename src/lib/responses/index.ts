@@ -11,3 +11,4 @@ export { PatronInformationResponse } from './PatronInformationResponse';
 export { PatronStatusResponse } from './PatronStatusResponse';
 export { RenewAllResponse } from './RenewAllResponse';
 export { RenewResponse } from './RenewResponse';
+export { RequestSCResendResponse } from './RequestSCResendResponse';

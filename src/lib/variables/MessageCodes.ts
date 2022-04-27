@@ -30,4 +30,5 @@ export enum MessageCodes {
   PATRON_STATUS_RESPONSE = '24',
   RENEW_RESPONSE = '30',
   RENEW_ALL_RESPONSE = '66',
+  REQUEST_SC_RESEND_RESPONSE = '96',
 }

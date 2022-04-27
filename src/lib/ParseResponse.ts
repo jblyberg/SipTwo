@@ -12,6 +12,7 @@ import {
   PatronStatusResponse,
   RenewAllResponse,
   RenewResponse,
+  RequestSCResendResponse,
 } from './responses';
 import { MessageCodes } from './variables';
 
@@ -90,6 +91,11 @@ export function ParseResponse(responseData: Buffer) {
 
   if (identifier === MessageCodes.END_PATRON_SESSION_RESPONSE) {
     const parser = new EndPatronSessionResponse();
+    return parser.parse(message);
+  }
+
+  if (identifier === MessageCodes.REQUEST_SC_RESEND_RESPONSE) {
+    const parser = new RequestSCResendResponse();
     return parser.parse(message);
   }
 

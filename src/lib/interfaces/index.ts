@@ -22,5 +22,6 @@ export { IRenewAllRequestDto } from './IRenewAllRequestDto';
 export { IRenewAllResponse } from './IRenewAllResponse';
 export { IRenewRequestDto } from './IRenewRequestDto';
 export { IRenewResponse } from './IRenewResponse';
+export { IRequestSCResendResponse } from './IRequestSCResendResponse';
 export { ISCStatusRequestDto } from './ISCStatusRequestDto';
 export { ISip2ConnectionOptions } from './ISip2ConnectionOptions';
