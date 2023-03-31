@@ -47,7 +47,7 @@ export class Connection {
 
   close() {
     if (this.socket) {
-      this.socket.end();
+      this.socket.resetAndDestroy();
     }
   }
 }

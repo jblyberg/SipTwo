@@ -59,6 +59,7 @@ const sipTwo = new SipTwo(sip2ConnectionOptions);
   const patronInfo = await sipTwo.requestPatronInformation();
   console.log('patronInfo', patronInfo);
 
+  sipTwo.connection.close();
 })();
 ```
 
@@ -114,6 +115,14 @@ patronInfo {
 ## Method Reference
 
 The following is a list of exposed methods available through the `SipTwo` class. Refer to the corresponding [interface](./src/lib/interfaces) files to see what the relevant object structure looks like.
+
+### Manage SIP2 socket connection
+
+```ts
+connection.connect(): Promise<void>
+connection.close(): void
+connection.send(request: string): Promise<any>
+```
 
 ### Log in to SIP2 server
 
