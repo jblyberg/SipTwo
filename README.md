@@ -6,7 +6,7 @@ SipTwo is a strongly-typed SIP2 wrapper for Node, written in Typescript.
 
 SipTwo is heavily inspired by Frank Desmettre's [node-sip2](https://github.com/frankdsm/node-sip2) package--particularly message construction and interpretation.
 
-SipTwo is wriiten entirely in Typescript, so it can be easily integrated into your type-safe projects. Or you can use it in a plain vanilla javascript project and typings will be ignored. All server responses have been cast to their appropriate types: `number`, `Date`, `string`, `boolean`, etc.
+SipTwo is written entirely in Typescript, so it can be easily integrated into your type-safe projects. Or you can use it in a plain vanilla javascript project and typings will be ignored. All server responses have been cast to their appropriate types: `number`, `Date`, `string`, `boolean`, etc.
 
 SipTwo also provides an API that will be familiar to people used to working with ES6+. You can take advantage of async/await to eliminate the need for callbacks.
 
