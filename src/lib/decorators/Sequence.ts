@@ -6,14 +6,14 @@ export function Sequence() {
 
         if (this[propertyName] === 0) {
           this[propertyName] = 1;
-        } else if (!this[propertyName]) {
-          this[propertyName] = 0;
-        } else {
+        } else if (this[propertyName]) {
           if (this[propertyName] === 9) {
             this[propertyName] = 0;
           } else {
             this[propertyName]++;
           }
+        } else {
+          this[propertyName] = 0;
         }
 
         return this[propertyName];
