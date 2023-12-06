@@ -1,6 +1,5 @@
 import { Connection } from './Connection';
 import { CommonRequestDto, MessageGuard, Sequence } from './decorators';
-import { Language } from './variables';
 import {
   IACStatusResponse,
   IBlockPatronRequestDto,
@@ -44,6 +43,7 @@ import {
   ResendRequest,
   SCStatusRequest,
 } from './requests';
+import { Language } from './variables';
 
 export class SipTwo {
   public connection: Connection;

@@ -1,6 +1,6 @@
-import { Message } from './Message';
-import { MessageCodes } from '../variables';
 import { getChecksum } from '../helpers/ChecksumHelpers';
+import { MessageCodes } from '../variables';
+import { Message } from './Message';
 
 export class RequestMessage extends Message {
   constructor(identifier: MessageCodes) {

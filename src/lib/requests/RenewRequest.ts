@@ -1,10 +1,13 @@
 import { RequestMessage } from '../classes/RequestMessage';
-import { MessageCodes } from '../variables';
-import { ICommonRequestDto, IRenewRequestDto } from '../interfaces';
 import { daysFromNow, formatSipRequestDateTime } from '../helpers/DateTimeHelpers';
+import { ICommonRequestDto, IRenewRequestDto } from '../interfaces';
+import { MessageCodes } from '../variables';
 
 export class RenewRequest extends RequestMessage {
-  constructor(private commonRequestDto: ICommonRequestDto, private renewRequestDto: IRenewRequestDto) {
+  constructor(
+    private commonRequestDto: ICommonRequestDto,
+    private renewRequestDto: IRenewRequestDto,
+  ) {
     super(MessageCodes.RENEW_REQUEST);
     this.sequence = commonRequestDto.sequence;
   }
@@ -31,7 +34,7 @@ export class RenewRequest extends RequestMessage {
     this.append('|AB');
     this.append(itemIdentifier);
     this.append('|AC');
-    this.append(this.commonRequestDto.sip2ConnectionOptions.password);
+    this.append(this.commonRequestDto.sip2ConnectionOptions.password || '');
 
     if (itemProperties) {
       this.append('|CH');

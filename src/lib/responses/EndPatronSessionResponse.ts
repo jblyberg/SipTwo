@@ -1,14 +1,14 @@
 import { ResponseMessage } from '../classes/ResponseMessage';
-import { MessageCodes } from '../variables';
-import { IEndPatronSessionResponse } from '../interfaces';
 import { parseChecksum, verifyChecksum } from '../helpers/ChecksumHelpers';
 import { parseSipResponseDateTime } from '../helpers/DateTimeHelpers';
-import { charToBool } from '../helpers/TypeTransformers';
 import {
   parseVariable,
   parseVariableMulti,
   parseVariableWithoutDelimeter,
 } from '../helpers/ParseVariableHelpers';
+import { charToBool } from '../helpers/TypeTransformers';
+import { IEndPatronSessionResponse } from '../interfaces';
+import { MessageCodes } from '../variables';
 
 export class EndPatronSessionResponse extends ResponseMessage {
   parse(message: string): IEndPatronSessionResponse {
@@ -17,8 +17,8 @@ export class EndPatronSessionResponse extends ResponseMessage {
     const data: IEndPatronSessionResponse = {
       endSession: charToBool(message.charAt(2)),
       transactionDate: parseSipResponseDateTime(message.slice(3, 21)),
-      institutionId: parseVariableWithoutDelimeter('AO', message.slice(21)),
-      patronIdentifier: parseVariable('AA', message.slice(21)),
+      institutionId: parseVariableWithoutDelimeter('AO', message.slice(21)) || '',
+      patronIdentifier: parseVariable('AA', message.slice(21)) || '',
       screenMessage: parseVariableMulti('AF', message.slice(21)),
       printLine: parseVariableMulti('AG', message.slice(21)),
     };

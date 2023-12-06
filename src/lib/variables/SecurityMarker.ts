@@ -6,7 +6,7 @@ export class SecurityMarker {
     WHISPER_TAPE_3M: '03',
   };
 
-  public static parse(value: string): string {
+  public static parse(value: string): string | undefined {
     const values = Object.keys(SecurityMarker.types).map((key) => SecurityMarker.types[key]);
     if (values.includes(value)) {
       return value;

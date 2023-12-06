@@ -1,36 +1,36 @@
 import { ResponseMessage } from '../classes/ResponseMessage';
-import { ICheckoutResponse } from '../interfaces';
-import { MediaType, MessageCodes } from '../variables';
 import { parseChecksum, verifyChecksum } from '../helpers/ChecksumHelpers';
 import { isValidDate, parseSipResponseDateTime } from '../helpers/DateTimeHelpers';
-import { charToBool, intToBool } from '../helpers/TypeTransformers';
 import {
   parseVariable,
   parseVariableMulti,
   parseVariableWithoutDelimeter,
 } from '../helpers/ParseVariableHelpers';
+import { charToBool, intToBool } from '../helpers/TypeTransformers';
+import { ICheckoutResponse } from '../interfaces';
+import { MediaType, MessageCodes } from '../variables';
 
 export class CheckoutResponse extends ResponseMessage {
   parse(message: string): ICheckoutResponse {
     this.identifier = MessageCodes.CHECKOUT_RESPONSE;
 
-    const dueDate = new Date(parseVariable('AH', message.slice(24)));
+    const dueDate = new Date(parseVariable('AH', message.slice(24)) || '');
 
     const data: ICheckoutResponse = {
       ok: intToBool(message.charAt(2)),
       renewed: charToBool(message.charAt(3)),
       transactionDate: parseSipResponseDateTime(message.slice(6, 24)),
-      institutionId: parseVariableWithoutDelimeter('AO', message.slice(24)),
-      patronIdentifier: parseVariable('AA', message.slice(24)),
-      itemIdentifier: parseVariable('AB', message.slice(24)),
-      titleIdentifier: parseVariable('AJ', message.slice(24)),
+      institutionId: parseVariableWithoutDelimeter('AO', message.slice(24)) || '',
+      patronIdentifier: parseVariable('AA', message.slice(24)) || '',
+      itemIdentifier: parseVariable('AB', message.slice(24)) || '',
+      titleIdentifier: parseVariable('AJ', message.slice(24)) || '',
       magneticMediaSupported: true,
       magneticMedia: charToBool(message.charAt(4)),
       desensitizeSupported: false,
       desensitize: charToBool(message.charAt(5)),
-      itemProperties: parseVariable('CH', message.slice(24)),
-      transactionId: parseVariable('BK', message.slice(24)),
-      feeAmount: parseVariable('BV', message.slice(24)),
+      itemProperties: parseVariable('CH', message.slice(24)) || '',
+      transactionId: parseVariable('BK', message.slice(24)) || '',
+      feeAmount: parseVariable('BV', message.slice(24)) || '',
       screenMessage: parseVariableMulti('AF', message.slice(24)),
       printLine: parseVariableMulti('AG', message.slice(24)),
     };
@@ -50,7 +50,7 @@ export class CheckoutResponse extends ResponseMessage {
     }
 
     if (this.existsAndNotEmpty('CK', message.slice(24))) {
-      data.mediaType = MediaType.parse(parseVariable('CK', message.slice(24)));
+      data.mediaType = MediaType.parse(parseVariable('CK', message.slice(24)) || '');
     }
 
     if (this.parseSequence(message) !== '') {

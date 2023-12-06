@@ -1,11 +1,14 @@
 import { v4 as uuid } from 'uuid';
 import { RequestMessage } from '../classes/RequestMessage';
+import { formatSipRequestDateTime } from '../helpers/DateTimeHelpers';
 import { ICommonRequestDto, IFeePaidRequestDto } from '../interfaces';
 import { CurrencyType, FeeType, MessageCodes, PaymentType } from '../variables';
-import { formatSipRequestDateTime } from '../helpers/DateTimeHelpers';
 
 export class FeePaidRequest extends RequestMessage {
-  constructor(private commonRequestDto: ICommonRequestDto, private feePaidRequestDto: IFeePaidRequestDto) {
+  constructor(
+    private commonRequestDto: ICommonRequestDto,
+    private feePaidRequestDto: IFeePaidRequestDto,
+  ) {
     super(MessageCodes.FEE_PAID_REQUEST);
     this.sequence = commonRequestDto.sequence;
   }

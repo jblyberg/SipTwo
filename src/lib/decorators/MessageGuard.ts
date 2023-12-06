@@ -3,11 +3,11 @@ export const MessageGuard = (messageType = '') => {
     const originalMethod = descriptor.value;
 
     descriptor.value = async function (...arguments_: any) {
-      if (!this.authenticated) {
+      if (!this.value.authenticated) {
         throw new Error('Not logged in to SIP2 server');
       }
 
-      if (messageType && !this.scStatus.supportedMessages[messageType]) {
+      if (messageType && !this.value.scStatus.supportedMessages[messageType]) {
         throw new Error(`Message type "${messageType}" is not supported by this SIP server'`);
       }
 

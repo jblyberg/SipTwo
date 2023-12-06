@@ -1,6 +1,6 @@
 import * as net from 'node:net';
-import { ParseResponse } from './ParseResponse';
 import { ISip2ConnectionOptions } from './interfaces';
+import { ParseResponse } from './ParseResponse';
 
 export class Connection {
   private socket: net.Socket;
@@ -21,7 +21,7 @@ export class Connection {
 
       this.socket.once('connect', () => resolve());
       this.socket.once('error', (error) => reject(error));
-      this.socket.connect(port, host);
+      this.socket.connect(port || 6001, host);
 
       if (maxListeners) {
         this.socket.setMaxListeners(maxListeners);

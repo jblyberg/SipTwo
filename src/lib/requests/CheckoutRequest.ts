@@ -1,10 +1,13 @@
 import { RequestMessage } from '../classes/RequestMessage';
+import { daysFromNow, formatSipRequestDateTime } from '../helpers/DateTimeHelpers';
 import { ICheckoutRequestDto, ICommonRequestDto } from '../interfaces';
 import { MessageCodes } from '../variables';
-import { daysFromNow, formatSipRequestDateTime } from '../helpers/DateTimeHelpers';
 
 export class CheckoutRequest extends RequestMessage {
-  constructor(private commonRequestDto: ICommonRequestDto, private checkoutRequestDto: ICheckoutRequestDto) {
+  constructor(
+    private commonRequestDto: ICommonRequestDto,
+    private checkoutRequestDto: ICheckoutRequestDto,
+  ) {
     super(MessageCodes.CHECKOUT_REQUEST);
     this.sequence = commonRequestDto.sequence;
   }
@@ -26,13 +29,13 @@ export class CheckoutRequest extends RequestMessage {
     this.append(transactionDate);
     this.append(formatSipRequestDateTime(daysFromNow(offlineDueDateInterval)));
     this.append('AO');
-    this.append(this.commonRequestDto.patronCredentials.institutionId);
+    this.append(this.commonRequestDto.patronCredentials.institutionId || '');
     this.append('|AA');
     this.append(this.commonRequestDto.patronCredentials.patronIdentifier);
     this.append('|AB');
     this.append(itemIdentifier);
     this.append('|AC');
-    this.append(this.commonRequestDto.sip2ConnectionOptions.password);
+    this.append(this.commonRequestDto.sip2ConnectionOptions.password || '');
 
     if (itemProperties) {
       this.append('|CH');

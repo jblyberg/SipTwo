@@ -3,7 +3,10 @@ import { ICommonRequestDto, ISCStatusRequestDto } from '../interfaces';
 import { MessageCodes, StatusCode } from '../variables';
 
 export class SCStatusRequest extends RequestMessage {
-  constructor(commonRequestDto: ICommonRequestDto, private scStatusRequestDto: ISCStatusRequestDto = {}) {
+  constructor(
+    commonRequestDto: ICommonRequestDto,
+    private scStatusRequestDto: ISCStatusRequestDto = {},
+  ) {
     super(MessageCodes.SELF_CHECK_STATUS_REQUEST);
     this.sequence = commonRequestDto.sequence;
   }

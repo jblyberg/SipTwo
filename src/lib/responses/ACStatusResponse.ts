@@ -1,14 +1,14 @@
 import { ResponseMessage } from '../classes/ResponseMessage';
-import { MessageCodes, SupportedMessages } from '../variables';
 import { parseChecksum, verifyChecksum } from '../helpers/ChecksumHelpers';
 import { parseSipResponseDateTime } from '../helpers/DateTimeHelpers';
-import { charToBool, stringToInt } from '../helpers/TypeTransformers';
-import { IACStatusResponse } from '../interfaces';
 import {
   parseVariable,
   parseVariableMulti,
   parseVariableWithoutDelimeter,
 } from '../helpers/ParseVariableHelpers';
+import { charToBool, stringToInt } from '../helpers/TypeTransformers';
+import { IACStatusResponse } from '../interfaces';
+import { MessageCodes, SupportedMessages } from '../variables';
 
 export class ACStatusResponse extends ResponseMessage {
   parse(message: string): IACStatusResponse {
@@ -28,9 +28,9 @@ export class ACStatusResponse extends ResponseMessage {
       retriesAllowed: stringToInt(message.slice(11, 14)),
       dateTimeSync: parseSipResponseDateTime(message.slice(14, 32)),
       protocolVersion: message.slice(32, 36),
-      institutionId: parseVariableWithoutDelimeter('AO', message.slice(36)),
-      libraryName: parseVariable('AM', message.slice(36)),
-      terminalLocation: parseVariable('AN', message.slice(36)),
+      institutionId: parseVariableWithoutDelimeter('AO', message.slice(36)) || '',
+      libraryName: parseVariable('AM', message.slice(36)) || '',
+      terminalLocation: parseVariable('AN', message.slice(36)) || '',
       screenMessage: parseVariableMulti('AF', message.slice(36)),
       printLine: parseVariableMulti('AG', message.slice(36)),
       supportedMessages,

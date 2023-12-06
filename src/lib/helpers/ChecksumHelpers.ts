@@ -7,7 +7,10 @@ export const getChecksum = (message: string) => {
 
   // add each character as an unsigned binary number
   for (const char of message) {
-    checksum_int += char.codePointAt(0);
+    const code_point = char.codePointAt(0);
+    if (code_point) {
+      checksum_int += code_point;
+    }
   }
 
   // convert integer to binary representation stored in a string

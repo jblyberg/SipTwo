@@ -1,7 +1,7 @@
 import { RequestMessage } from '../classes/RequestMessage';
-import { MessageCodes } from '../variables';
-import { ICommonRequestDto, IRenewAllRequestDto } from '../interfaces';
 import { formatSipRequestDateTime } from '../helpers/DateTimeHelpers';
+import { ICommonRequestDto, IRenewAllRequestDto } from '../interfaces';
+import { MessageCodes } from '../variables';
 
 export class RenewAllRequest extends RequestMessage {
   constructor(
@@ -22,7 +22,7 @@ export class RenewAllRequest extends RequestMessage {
     this.append('|AA');
     this.append(this.commonRequestDto.patronCredentials.patronIdentifier);
     this.append('|AC');
-    this.append(this.commonRequestDto.sip2ConnectionOptions.password);
+    this.append(this.commonRequestDto.sip2ConnectionOptions.password || '');
 
     if (itemProperties) {
       this.append('|CH');

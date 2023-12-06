@@ -15,7 +15,7 @@ export class CirculationStatus {
     MISSING: '13',
   };
 
-  public static parse(value: string): string {
+  public static parse(value: string): string | undefined {
     const values = Object.keys(CirculationStatus.types).map((key) => CirculationStatus.types[key]);
     if (values.includes(value)) {
       return value;

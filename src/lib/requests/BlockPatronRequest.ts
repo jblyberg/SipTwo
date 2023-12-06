@@ -25,6 +25,6 @@ export class BlockPatronRequest extends RequestMessage {
     this.append('|AA');
     this.append(this.commonRequestDto.patronCredentials.patronIdentifier);
     this.append('|AC');
-    this.append(this.commonRequestDto.sip2ConnectionOptions.password);
+    this.append(this.commonRequestDto.sip2ConnectionOptions.password || '');
   }
 }

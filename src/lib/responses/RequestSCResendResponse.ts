@@ -1,8 +1,8 @@
 import { ResponseMessage } from '../classes/ResponseMessage';
+import { parseChecksum, verifyChecksum } from '../helpers/ChecksumHelpers';
+import { intToBool } from '../helpers/TypeTransformers';
 import { IRequestSCResendResponse } from '../interfaces';
 import { MessageCodes } from '../variables';
-import { intToBool } from '../helpers/TypeTransformers';
-import { parseChecksum, verifyChecksum } from '../helpers/ChecksumHelpers';
 
 export class RequestSCResendResponse extends ResponseMessage {
   parse(message: string): IRequestSCResendResponse {

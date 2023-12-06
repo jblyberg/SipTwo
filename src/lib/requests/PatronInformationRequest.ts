@@ -1,7 +1,7 @@
 import { RequestMessage } from '../classes/RequestMessage';
-import { MessageCodes, Summary } from '../variables';
 import { formatSipRequestDateTime } from '../helpers/DateTimeHelpers';
 import { ICommonRequestDto, IPatronInformationRequestDto } from '../interfaces';
+import { MessageCodes, Summary } from '../variables';
 
 export class PatronInformationRequest extends RequestMessage {
   private summaryType: string;
@@ -26,7 +26,7 @@ export class PatronInformationRequest extends RequestMessage {
     const { patronIdentifier, password } = this.commonRequestDto.patronCredentials;
     const summary = new Summary(this.summaryType);
 
-    this.append(language);
+    this.append(language || '001');
     this.append(transactionDate);
     this.append(summary.toString());
     this.append('AO');

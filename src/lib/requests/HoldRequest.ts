@@ -4,7 +4,10 @@ import { ICommonRequestDto, IHoldRequestDto } from '../interfaces';
 import { HoldRequestMode, MessageCodes } from '../variables';
 
 export class HoldRequest extends RequestMessage {
-  constructor(private commonRequestDto: ICommonRequestDto, private holdRequestDto: IHoldRequestDto) {
+  constructor(
+    private commonRequestDto: ICommonRequestDto,
+    private holdRequestDto: IHoldRequestDto,
+  ) {
     super(MessageCodes.HOLD_REQUEST);
     this.sequence = commonRequestDto.sequence;
   }

@@ -13,7 +13,7 @@ export class MediaType {
     BOOK_WITH_AUDIO_TAPE: '010',
   };
 
-  public static parse(value: string): string {
+  public static parse(value: string): string | undefined {
     const values = Object.keys(MediaType.types).map((key) => MediaType.types[key]);
     if (values.includes(value)) {
       return value;

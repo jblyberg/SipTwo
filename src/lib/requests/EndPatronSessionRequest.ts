@@ -1,7 +1,7 @@
 import { RequestMessage } from '../classes/RequestMessage';
+import { formatSipRequestDateTime } from '../helpers/DateTimeHelpers';
 import { ICommonRequestDto } from '../interfaces';
 import { MessageCodes } from '../variables';
-import { formatSipRequestDateTime } from '../helpers/DateTimeHelpers';
 
 export class EndPatronSessionRequest extends RequestMessage {
   constructor(private commonRequestDto: ICommonRequestDto) {

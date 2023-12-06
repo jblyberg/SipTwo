@@ -1,10 +1,13 @@
 import { RequestMessage } from '../classes/RequestMessage';
-import { MessageCodes } from '../variables';
-import { ICheckinRequestDto, ICommonRequestDto } from '../interfaces';
 import { formatSipRequestDateTime } from '../helpers/DateTimeHelpers';
+import { ICheckinRequestDto, ICommonRequestDto } from '../interfaces';
+import { MessageCodes } from '../variables';
 
 export class CheckInRequest extends RequestMessage {
-  constructor(private commonRequestDto: ICommonRequestDto, private checkinRequestDto: ICheckinRequestDto) {
+  constructor(
+    private commonRequestDto: ICommonRequestDto,
+    private checkinRequestDto: ICheckinRequestDto,
+  ) {
     super(MessageCodes.CHECKIN_REQUEST);
     this.sequence = commonRequestDto.sequence;
   }
@@ -26,7 +29,7 @@ export class CheckInRequest extends RequestMessage {
     this.append('|AB');
     this.append(itemIdentifier);
     this.append('|AC');
-    this.append(password);
+    this.append(password || '');
     if (itemProperties) {
       this.append('|CH');
       this.append(itemProperties);

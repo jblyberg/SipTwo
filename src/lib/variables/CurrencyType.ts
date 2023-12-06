@@ -7,7 +7,7 @@ export class CurrencyType {
     EURO: 'EUR',
   };
 
-  public static parse(value: string) {
+  public static parse(value: string): string | undefined {
     const values = Object.keys(CurrencyType.types).map((key) => CurrencyType.types[key]);
     if (values.includes(value)) {
       return value;
