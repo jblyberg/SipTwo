@@ -6,7 +6,7 @@ export class Message {
   public message: string;
   public messageTerminator = '\r\n';
 
-  append(value: string | number): void {
+  append(value: string | number | undefined): void {
     if (value) {
       this.message += value;
     }

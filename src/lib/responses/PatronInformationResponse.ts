@@ -27,14 +27,14 @@ export class PatronInformationResponse extends ResponseMessage {
       fineItemsCount: stringToInt(message.slice(49, 53)),
       recallItemsCount: stringToInt(message.slice(53, 57)),
       unavailableHoldsCount: stringToInt(message.slice(57, 61)),
-      institutionId: parseVariableWithoutDelimeter('AO', message.slice(61)) || '',
-      patronIdentifier: parseVariable('AA', message.slice(61)) || '',
-      personalName: parseVariable('AE', message.slice(61)) || '',
+      institutionId: parseVariableWithoutDelimeter('AO', message.slice(61)),
+      patronIdentifier: parseVariable('AA', message.slice(61)),
+      personalName: parseVariable('AE', message.slice(61)),
       feeAmount: feeAmount ? Number.parseFloat(feeAmount) : 0,
       feeLimit: feeLimit ? Number.parseFloat(feeLimit) : 0,
-      homeAddress: parseVariable('BD', message.slice(61)) || '',
-      email: parseVariable('BE', message.slice(61)) || '',
-      phone: parseVariable('BF', message.slice(61)) || '',
+      homeAddress: parseVariable('BD', message.slice(61)),
+      email: parseVariable('BE', message.slice(61)),
+      phone: parseVariable('BF', message.slice(61)),
       screenMessage: parseVariableMulti('AF', message.slice(61)),
       printLine: parseVariableMulti('AG', message.slice(61)),
     };
@@ -52,17 +52,17 @@ export class PatronInformationResponse extends ResponseMessage {
     }
 
     if (this.existsAndNotEmpty('BL', message.slice(61))) {
-      data.validPatron = charToBool(parseVariable('BL', message.slice(61))?.charAt(0) || '');
+      data.validPatron = charToBool(parseVariable('BL', message.slice(61))?.charAt(0));
       data.validPatronUsed = true;
     }
 
     if (this.existsAndNotEmpty('CQ', message.slice(61))) {
-      data.validPatronPassword = charToBool(parseVariable('CQ', message.slice(61))?.charAt(0) || '');
+      data.validPatronPassword = charToBool(parseVariable('CQ', message.slice(61))?.charAt(0));
       data.validPatronPasswordUsed = true;
     }
 
     if (this.existsAndNotEmpty('BH', message.slice(61))) {
-      data.currencyType = CurrencyType.parse(parseVariable('BH', message.slice(61)) || '');
+      data.currencyType = CurrencyType.parse(parseVariable('BH', message.slice(61)));
     }
 
     for (const key of Object.keys(ItemType)) {

@@ -34,7 +34,7 @@ export class RenewRequest extends RequestMessage {
     this.append('|AB');
     this.append(itemIdentifier);
     this.append('|AC');
-    this.append(this.commonRequestDto.sip2ConnectionOptions.password || '');
+    this.append(this.commonRequestDto.sip2ConnectionOptions.password);
 
     if (itemProperties) {
       this.append('|CH');

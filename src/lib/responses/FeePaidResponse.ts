@@ -17,9 +17,9 @@ export class FeePaidResponse extends ResponseMessage {
     const data: IFeePaidResponse = {
       paymentAccepted: charToBool(message.charAt(2)),
       transactionDate: parseSipResponseDateTime(message.slice(3, 21)),
-      institutionId: parseVariableWithoutDelimeter('AO', message.slice(21)) || '',
-      patronIdentifier: parseVariable('AA', message.slice(21)) || '',
-      transactionId: parseVariable('BK', message.slice(21)) || '',
+      institutionId: parseVariableWithoutDelimeter('AO', message.slice(21)),
+      patronIdentifier: parseVariable('AA', message.slice(21)),
+      transactionId: parseVariable('BK', message.slice(21)),
       screenMessage: parseVariableMulti('AF', message.slice(21)),
       printLine: parseVariableMulti('AG', message.slice(21)),
     };

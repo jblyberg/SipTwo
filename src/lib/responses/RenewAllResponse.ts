@@ -15,7 +15,7 @@ export class RenewAllResponse extends ResponseMessage {
       renewedCount: stringToInt(message.slice(3, 7)),
       unrenewedCount: stringToInt(message.slice(7, 11)),
       transactionDate: parseSipResponseDateTime(message.slice(11, 29)),
-      institutionId: parseVariableWithoutDelimeter('AO', message.slice(29)) || '',
+      institutionId: parseVariableWithoutDelimeter('AO', message.slice(29)),
       screenMessage: parseVariableMulti('AF', message.slice(24)),
       printLine: parseVariableMulti('AG', message.slice(24)),
     };

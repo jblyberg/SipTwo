@@ -14,7 +14,7 @@ export class CheckinResponse extends ResponseMessage {
   parse(message: string): ICheckinResponse {
     this.identifier = MessageCodes.CHECKIN_RESPONSE;
 
-    const dueDate = new Date(parseVariable('AH', message.slice(24)) || '');
+    const dueDate = new Date(parseVariable('AH', message.slice(24)));
     const feeAmount = parseVariable('BV', message.slice(24));
 
     const data: ICheckinResponse = {
@@ -25,12 +25,12 @@ export class CheckinResponse extends ResponseMessage {
       desensitizeSupported: false,
       desensitize: charToBool(message.charAt(5)),
       transactionDate: parseSipResponseDateTime(message.slice(6, 24)),
-      institutionId: parseVariableWithoutDelimeter('AO', message.slice(24)) || '',
-      patronIdentifier: parseVariable('AA', message.slice(24)) || '',
-      itemIdentifier: parseVariable('AB', message.slice(24)) || '',
-      titleIdentifier: parseVariable('AJ', message.slice(24)) || '',
-      itemProperties: parseVariable('CH', message.slice(24)) || '',
-      transactionId: parseVariable('BK', message.slice(24)) || '',
+      institutionId: parseVariableWithoutDelimeter('AO', message.slice(24)),
+      patronIdentifier: parseVariable('AA', message.slice(24)),
+      itemIdentifier: parseVariable('AB', message.slice(24)),
+      titleIdentifier: parseVariable('AJ', message.slice(24)),
+      itemProperties: parseVariable('CH', message.slice(24)),
+      transactionId: parseVariable('BK', message.slice(24)),
       feeAmount: feeAmount ? Number.parseFloat(feeAmount) : 0,
       screenMessage: parseVariableMulti('AF', message.slice(24)),
       printLine: parseVariableMulti('AG', message.slice(24)),
@@ -51,7 +51,7 @@ export class CheckinResponse extends ResponseMessage {
     }
 
     if (this.existsAndNotEmpty('CK', message.slice(24))) {
-      data.mediaType = MediaType.parse(parseVariable('CK', message.slice(24)) || '');
+      data.mediaType = MediaType.parse(parseVariable('CK', message.slice(24)));
     }
 
     if (this.parseSequence(message) !== '') {

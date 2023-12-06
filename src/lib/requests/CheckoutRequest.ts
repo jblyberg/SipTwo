@@ -29,13 +29,13 @@ export class CheckoutRequest extends RequestMessage {
     this.append(transactionDate);
     this.append(formatSipRequestDateTime(daysFromNow(offlineDueDateInterval)));
     this.append('AO');
-    this.append(this.commonRequestDto.patronCredentials.institutionId || '');
+    this.append(this.commonRequestDto.patronCredentials.institutionId);
     this.append('|AA');
     this.append(this.commonRequestDto.patronCredentials.patronIdentifier);
     this.append('|AB');
     this.append(itemIdentifier);
     this.append('|AC');
-    this.append(this.commonRequestDto.sip2ConnectionOptions.password || '');
+    this.append(this.commonRequestDto.sip2ConnectionOptions.password);
 
     if (itemProperties) {
       this.append('|CH');

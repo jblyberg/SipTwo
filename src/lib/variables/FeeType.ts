@@ -11,11 +11,11 @@ export class FeeType {
     HOLD_FEE: '09',
   };
 
-  public static parse(value: string): string | undefined {
+  public static parse(value: string): string {
     const values = Object.keys(FeeType.types).map((key) => FeeType.types[key]);
     if (values.includes(value)) {
       return value;
     }
-    return;
+    return '';
   }
 }

@@ -1,4 +1,4 @@
-export const parseVariable = (prefix: string, message: string): string | undefined => {
+export const parseVariable = (prefix: string, message: string): string => {
   let parsedVariable = '';
   const regexp = new RegExp('\\|' + prefix + '(.*?)\\|');
   const matches = message.match(regexp);
@@ -7,10 +7,10 @@ export const parseVariable = (prefix: string, message: string): string | undefin
     parsedVariable = matches[1];
   }
 
-  return parsedVariable.length > 0 ? parsedVariable : undefined;
+  return parsedVariable.length > 0 ? parsedVariable : '';
 };
 
-export const parseVariableWithoutDelimeter = (prefix: string, message: string): string | undefined => {
+export const parseVariableWithoutDelimeter = (prefix: string, message: string): string => {
   let parsedVariable = '';
   const regexp = new RegExp(prefix + '(.*?)\\|');
   const matches = message.match(regexp);
@@ -19,7 +19,7 @@ export const parseVariableWithoutDelimeter = (prefix: string, message: string): 
     parsedVariable = matches[1];
   }
 
-  return parsedVariable.length > 0 ? parsedVariable : undefined;
+  return parsedVariable.length > 0 ? parsedVariable : '';
 };
 
 export const parseVariableMulti = (prefix: string, message: string): string[] => {
