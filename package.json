@@ -1,6 +1,6 @@
 {
   "name": "siptwo",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A strongly-typed library for communicating with SIP2 servers",
   "author": "John Blyberg <john@blyberg.net>",
   "license": "MIT",
