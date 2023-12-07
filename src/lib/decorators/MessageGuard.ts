@@ -1,6 +1,7 @@
 export const MessageGuard = (messageType = '') => {
-  return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
-    const originalMethod = descriptor.value;
+  return async (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
+    // console.log(descriptor);
+    const originalMethod = await descriptor.value;
 
     descriptor.value = async function (...arguments_: any) {
       if (!this.value.authenticated) {
